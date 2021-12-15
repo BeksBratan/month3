@@ -9,8 +9,23 @@
     <h2>{{ post.title }}</h2>
     <p>{{ post.description }}</p>
     <img src="{{ post.image.url }}" alt="">
-    <p>{{ post.created_date }}</p>
-    <p>{{ post.update_date }}</p>
+    <br><br>
+    Created date:<p>{{ post.created_date }}</p>
+    Update date:<p>{{ post.update_date }}</p>
+
+</div>
+<div>
+    <h2>Comments: </h2>
+    <ul>
+         {% for i in post_comment.all %}
+        <li>
+            <p> {{ i.text }}</p>
+            <p> {{ i.created_date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/add-comment">Add comment</a>
+
 </div>
 </body>
 </html>
