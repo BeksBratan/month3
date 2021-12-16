@@ -6,6 +6,8 @@
 </head>
 <body>
 <div>
+    <p><a href="/book/add-comment-book/">Add comment</a></p>
+    <ul>
     {% for i in book %}
         <li>
             <h2><a href="/book/{{ i.id }}/">{{ i.title }}</a></h2>
@@ -14,7 +16,8 @@
 {#            <p>{{ i.created_date }}</p>#}
 {#            <p>{{ i.update_date }}</p>#}
         </li>
-    {% endfor %}
+        {% endfor %}
+    </ul>
 </div>
 </body>
 </html>

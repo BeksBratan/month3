@@ -17,3 +17,5 @@ class Comment(models.Model):
     text = models.TextField()
     created_date = models.DateField(auto_now_add=True)
 
+
+

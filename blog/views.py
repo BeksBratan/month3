@@ -1,6 +1,5 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
-
 from . import models, forms
 
 
@@ -11,7 +10,6 @@ def get_posts(request):
 
 def post_detail(request, id):
     try:
-
         post = models.Post.objects.get(id=id)
         try:
             comment = models.Comment.objects.filter(post_id=id).order_by('created_date')
@@ -27,9 +25,10 @@ def add_post(request):
     if method == 'POST':
         form = forms.PostForm(request.POST, request.FILES)
         print(form.data)
-        if form.is_valid():
-            form.save()
-            return HttpResponse('Post created Successfully')
+        models.Post.objects.create(title=form.data['title'],
+                                   description=form.data['description'],
+                                   image=form.data['image'])
+        return HttpResponse('Post created Successfully')
     else:
         form = forms.PostForm()
     return render(request, 'add_post.html', {'form': form})

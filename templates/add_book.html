@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Book</title>
+</head>
+<body>
+<div>
+    <p><a href="/book/">Back to all books</a></p>
+    <form action="/book/add-book/" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Add Book" />
+    </form>
+</div>
+</body>
+</html>

@@ -10,8 +10,24 @@
     <p>{{ book.author }}</p>
     <p>{{ book.description }}</p>
     <img src="{{ book.image.url }}" alt="">
-    <p>{{ book.created_date }}</p>
-    <p>{{ book.update_date }}</p>
+    <br><br>
+    Created date:<p>{{ post.created_date }}</p>
+    Update date:<p>{{ post.update_date }}</p>
+
+
+
+</div>
+<div>
+    <h2>Comments: </h2>
+    <ul>
+         {% for i in book_comment %}
+        <li>
+            <p> {{ i.text }}</p>
+            <p> {{ i.created_date }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/book/add-comment-book">Add comment</a>
 
 </div>
 </body>

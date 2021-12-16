@@ -1,21 +1,23 @@
 from django import forms
-from . import models
+from bookstore import models
 
 
-class PostForm(forms.ModelForm):
+class BookForm(forms.ModelForm):
     class Meta:
-        model = models.Post
+        model = models.Book
         fields = [
             'title',
+            'author',
             'description',
             'image'
         ]
-
 
 class CommentForm(forms.ModelForm):
     class Meta:
         model = models.Comment
         fields = [
-            'post',
+            'book',
             'text'
         ]
+
+
